@@ -1,0 +1,43 @@
+    1  history
+    2  cd Python-3.10.16/
+    3  ls
+    4  make
+    5  clear
+    6  find /etc/ -name openssl.cnf -printf "%h\n"
+    7  cd ../
+    8  curl -O https://github.com/openssl/openssl/releases/download/openssl-3.4.0/openssl-3.4.0.tar.gz
+    9  ls
+   10  tar -xf openssl-3.4.0.tar.gz 
+   11  gunzip openssl-3.4.0.tar.gz 
+   12  ls
+   12  gunzip openssl-3.4.0.tar.gz 
+   13  curl -O https://github.com/openssl/openssl/releases/download/openssl-3.4.0/openssl-3.4.0.tar.gz
+   14  ls
+   15  rm openssl-3.4.0.tar.gz 
+   16  wget https://github.com/openssl/openssl/releases/download/openssl-3.4.0/openssl-3.4.0.tar.gz
+   17  gunzip openssl-3.4.0.tar.gz 
+   18  tar -xf openssl-3.4.0.tar 
+   19  ls
+   20  cd openssl-3.4.0/
+   21  ls
+   22  cd ../
+   23  pushd openssl-3.4.0
+   24  ./config --prefix=/usr/local/custom-openssl --libdir=/lib --openssldir=/etc/ssl
+   25  make -j1 depend
+   26  make -j8
+   27  make install_sw
+   28  popd
+   29  cd Python-3.10.16/
+   30  ./configure -C --with-openssl=/usr/local/custom-openssl --with-openssl-rpath=auto --prefix=/usr/local/python-3.10.16
+   31  ./configure --enable-optimizations
+   32  python3.10
+   33  make altinstall
+   34  python3.10
+   35  python3.10 -m venv .venv/py3.10
+   36  source .venv/py3.10/bin/activate
+   37  pip install label-studio
+   38  pip show label-studio
+   39  label-studio
+   40  history|less
+   41  cd
+   42  history > /mnt/user_history.txt
